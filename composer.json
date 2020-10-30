@@ -1,0 +1,19 @@
+{
+    "name": "stefmachine/querybuilder",
+    "description": "Light weight SQL query builder for PHP",
+    "authors": [
+        {
+            "name": "Stéphane Godin",
+            "email": "stephanegodin@outlook.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stefmachine\\QueryBuilder\\": "src/"
+        }
+    },
+    "license": "MIT"
+}
