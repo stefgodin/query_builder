@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Converter\Types;
 
 
-use Clyvanor\Persistence\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
 use Stefmachine\QueryBuilder\Converter\TypeConverterInterface;
 
 class BooleanConverter implements TypeConverterInterface

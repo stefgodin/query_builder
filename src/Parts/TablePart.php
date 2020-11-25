@@ -7,7 +7,7 @@ namespace Stefmachine\QueryBuilder\Parts;
 
 use Stefmachine\QueryBuilder\Expressions\Alias;
 use Stefmachine\QueryBuilder\Expressions\QueryExpressionInterface;
-use Clyvanor\Persistence\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 use Stefmachine\QueryBuilder\Expressions\Table;
 

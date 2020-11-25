@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Builder;
 
 
-use Clyvanor\Persistence\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
 use Stefmachine\QueryBuilder\Expressions\Join;
 use Stefmachine\QueryBuilder\Parts\JoinedTablesPart;
 use Stefmachine\QueryBuilder\Parts\TablePart;

@@ -8,7 +8,7 @@ use Stefmachine\QueryBuilder\Expressions\Column;
 use Stefmachine\QueryBuilder\Expressions\Expr;
 use Stefmachine\QueryBuilder\Expressions\QueryExpressionInterface;
 
-use Clyvanor\Persistence\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class WherePart implements QueryPartInterface

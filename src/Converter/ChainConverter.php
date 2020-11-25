@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Converter;
 
 
-use Clyvanor\Persistence\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
 use Stefmachine\QueryBuilder\Converter\Types\BooleanConverter;
 use Stefmachine\QueryBuilder\Converter\Types\DateTimeConverter;
 use Stefmachine\QueryBuilder\Converter\Types\PrimitiveConverter;

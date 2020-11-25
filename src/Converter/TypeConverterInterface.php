@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Converter;
 
 
-use Clyvanor\Persistence\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
 
 interface TypeConverterInterface
 {
