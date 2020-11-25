@@ -153,7 +153,7 @@ QueryBuilder::select()
         MySubTable::get()
             ->queryMyTable(function(SelectQueryBuilder $_table){
                 $_table->where([
-                   'my_table.x' => 'y' //won't work since my_table is wrapped in sub query    
+                   'my_table.x' => 'y' // works!    
                 ]);
             })
     , 'sub_table');
@@ -161,4 +161,4 @@ QueryBuilder::select()
 
 This means that you can now optimise your queries to the next level AND keep things clean and separated.
 
-Note that you can also nest `QueryBuilderProxies` within one another and still get access to their internal API.
+Note that with this method you can also nest `QueryBuilderProxies` within one another and still get access to their internal API.
