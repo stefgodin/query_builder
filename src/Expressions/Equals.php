@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Expressions;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class Equals extends SimpleOperator implements QueryExpressionInterface

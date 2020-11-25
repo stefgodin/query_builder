@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Builder;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Expressions\Join;
 use Stefmachine\QueryBuilder\Parts\JoinedTablesPart;
 use Stefmachine\QueryBuilder\Parts\TablePart;
@@ -13,7 +13,7 @@ use Stefmachine\QueryBuilder\Parts\WherePart;
 
 class UpdateQueryBuilder extends BaseQueryBuilder
 {
-    protected function getTemplate(AdapterInterface $_adapter): string
+    protected function getTemplate(QueryAdapterInterface $_adapter): string
     {
         return 'UPDATE {TABLE} {JOIN} SET {VALUES} {WHERE}';
     }

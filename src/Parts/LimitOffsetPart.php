@@ -3,7 +3,7 @@
 
 namespace Stefmachine\QueryBuilder\Parts;
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class LimitOffsetPart implements QueryPartInterface
@@ -32,7 +32,7 @@ class LimitOffsetPart implements QueryPartInterface
         $this->offset = $_offset;
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $limit = $this->limit;
         $offset = $this->offset;

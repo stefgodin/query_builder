@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Parts;
 
 use Stefmachine\QueryBuilder\Expressions\Column;
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class InsertColumnsPart implements QueryPartInterface
@@ -26,7 +26,7 @@ class InsertColumnsPart implements QueryPartInterface
         return new static($_columns);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $columns = implode(', ', array_map(function (Column $_field) use ($_qb, $_adapter) {
             return $_field->buildOnQuery($_qb, $_adapter);

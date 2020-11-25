@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Adapter;
 
 
-interface AdapterInterface
+interface QueryAdapterInterface
 {
     public function getDriverName(): string;
     

@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Converter;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Converter\Types\BooleanConverter;
 use Stefmachine\QueryBuilder\Converter\Types\DateTimeConverter;
 use Stefmachine\QueryBuilder\Converter\Types\PrimitiveConverter;
@@ -32,7 +32,7 @@ class ChainConverter implements TypeConverterInterface
         return false;
     }
     
-    public static function convert($_value, AdapterInterface $_adapter)
+    public static function convert($_value, QueryAdapterInterface $_adapter)
     {
         foreach (self::$converters as $converter){
             if(call_user_func([$converter, 'canConvert'], $_value)){

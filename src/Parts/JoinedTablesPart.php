@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Parts;
 
 use Stefmachine\QueryBuilder\Expressions\Join;
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class JoinedTablesPart implements QueryPartInterface
@@ -26,7 +26,7 @@ class JoinedTablesPart implements QueryPartInterface
         $this->joins[] = $_join;
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $parts = array_map(function(Join $_table) use ($_qb, $_adapter){
             return $_table->buildOnQuery($_qb, $_adapter);

@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Converter\Types;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Converter\TypeConverterInterface;
 
 class DateTimeConverter implements TypeConverterInterface
@@ -16,10 +16,10 @@ class DateTimeConverter implements TypeConverterInterface
     
     /**
      * @param \DateTimeInterface $_value
-     * @param AdapterInterface $_adapter
+     * @param QueryAdapterInterface $_adapter
      * @return mixed
      */
-    public static function convert($_value, AdapterInterface $_adapter)
+    public static function convert($_value, QueryAdapterInterface $_adapter)
     {
         return $_value->format('Y-m-d H:i:s');
     }

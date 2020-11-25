@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Parts;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 use Stefmachine\QueryBuilder\Expressions\Column;
 use Stefmachine\QueryBuilder\Expressions\Expr;
@@ -31,7 +31,7 @@ class HavingPart implements QueryPartInterface
         return new static($_havingParts);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         if(!empty($this->parts)){
             $conditions = Expr::AndX(...$this->parts)->buildOnQuery($_qb, $_adapter);

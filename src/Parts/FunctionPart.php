@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Parts;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 use Stefmachine\QueryBuilder\Expressions\FunctionExpression;
 use Stefmachine\QueryBuilder\Expressions\QueryExpressionInterface;
@@ -25,7 +25,7 @@ class FunctionPart implements QueryPartInterface
         return new static($_name, $_parameters);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $params = [];
         foreach ($this->parameters as $parameter){

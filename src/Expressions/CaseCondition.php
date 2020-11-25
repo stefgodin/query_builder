@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Expressions;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class CaseCondition implements QueryExpressionInterface
@@ -23,7 +23,7 @@ class CaseCondition implements QueryExpressionInterface
         return new static($_when, $_then);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $condition = $this->condition->buildOnQuery($_qb, $_adapter);
         if($this->result instanceof QueryExpressionInterface){

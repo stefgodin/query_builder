@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Builder;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Query;
 use Stefmachine\QueryBuilder\Converter\ChainConverter;
 use Stefmachine\QueryBuilder\Expressions\QueryExpressionInterface;
@@ -17,7 +17,7 @@ abstract class BaseQueryBuilder implements QueryBuilderInterface, QueryPartInter
     protected $queryParts;
     /** @var array */
     protected $params;
-    /** @var AdapterInterface|null */
+    /** @var QueryAdapterInterface|null */
     protected $adapter;
     
     /**
@@ -38,9 +38,9 @@ abstract class BaseQueryBuilder implements QueryBuilderInterface, QueryPartInter
         return new static();
     }
     
-    abstract protected function getTemplate(AdapterInterface $_adapter): string;
+    abstract protected function getTemplate(QueryAdapterInterface $_adapter): string;
     
-    private function getEmptyQueryParts(AdapterInterface $_adapter)
+    private function getEmptyQueryParts(QueryAdapterInterface $_adapter)
     {
         preg_match_all('/\{([A-Z_]+)\}/', $this->getTemplate($_adapter), $matches);
         
@@ -96,10 +96,10 @@ abstract class BaseQueryBuilder implements QueryBuilderInterface, QueryPartInter
     /**
      * Builds a Query from the current builder state
      *
-     * @param AdapterInterface $_adapter
+     * @param QueryAdapterInterface $_adapter
      * @return QueryInterface
      */
-    public function getQuery(AdapterInterface $_adapter): QueryInterface
+    public function getQuery(QueryAdapterInterface $_adapter): QueryInterface
     {
         $oldAdapter = $this->adapter;
         $this->adapter = $this->adapter ?: $_adapter;
@@ -146,10 +146,10 @@ abstract class BaseQueryBuilder implements QueryBuilderInterface, QueryPartInter
      * Used when building in a sub-query
      *
      * @param QueryBuilderInterface $_qb
-     * @param AdapterInterface $_adapter
+     * @param QueryAdapterInterface $_adapter
      * @return string
      */
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $adapter = $this->adapter ?: $_adapter;
         
@@ -162,10 +162,10 @@ abstract class BaseQueryBuilder implements QueryBuilderInterface, QueryPartInter
     /**
      * Manually setting the adapter will force the usage of it even when given another adapter
      *
-     * @param AdapterInterface $_adapter
+     * @param QueryAdapterInterface $_adapter
      * @return $this
      */
-    public function with(AdapterInterface $_adapter)
+    public function with(QueryAdapterInterface $_adapter)
     {
         $this->adapter = $_adapter;
         return $this;

@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Converter\Types;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Converter\TypeConverterInterface;
 
 class BooleanConverter implements TypeConverterInterface
@@ -14,7 +14,7 @@ class BooleanConverter implements TypeConverterInterface
         return is_bool($_value);
     }
     
-    public static function convert($_value, AdapterInterface $_adapter)
+    public static function convert($_value, QueryAdapterInterface $_adapter)
     {
         return intval($_value);
     }

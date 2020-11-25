@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Builder;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Parts\QueryPartInterface;
 use Stefmachine\QueryBuilder\QueryInterface;
 
@@ -18,5 +18,5 @@ interface QueryBuilderInterface
      */
     public function addParam($_value): string;
     
-    public function getQuery(AdapterInterface $_adapter): QueryInterface;
+    public function getQuery(QueryAdapterInterface $_adapter): QueryInterface;
 }

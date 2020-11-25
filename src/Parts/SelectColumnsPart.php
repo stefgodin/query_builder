@@ -9,7 +9,7 @@ use Stefmachine\QueryBuilder\Expressions\Column;
 use Stefmachine\QueryBuilder\Expressions\QueryExpressionInterface;
 
 use Stefmachine\QueryBuilder\Expressions\StarColumn;
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class SelectColumnsPart implements QueryPartInterface
@@ -48,7 +48,7 @@ class SelectColumnsPart implements QueryPartInterface
         return new static($_fields);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         return implode(', ', array_map(function(QueryExpressionInterface $_field) use ($_qb, $_adapter){
             return $_field->buildOnQuery($_qb, $_adapter);

@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Expressions;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class Interval implements QueryExpressionInterface
@@ -23,7 +23,7 @@ class Interval implements QueryExpressionInterface
         return new static($_expression, $_unit);
     }
     
-    private function getIntervalUnits(AdapterInterface $_adapter): array
+    private function getIntervalUnits(QueryAdapterInterface $_adapter): array
     {
         if($_adapter->getDriverName() !== 'mysql'){
             throw new \RuntimeException("Interval does not exist for driver");
@@ -40,7 +40,7 @@ class Interval implements QueryExpressionInterface
         );
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         if(is_string($this->unit) && !in_array(strtoupper($this->unit), $this->getIntervalUnits($_adapter))){
             throw new \RuntimeException('Invalid unit given.');

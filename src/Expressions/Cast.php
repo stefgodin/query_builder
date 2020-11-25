@@ -3,7 +3,7 @@
 
 namespace Stefmachine\QueryBuilder\Expressions;
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class Cast implements QueryExpressionInterface
@@ -22,7 +22,7 @@ class Cast implements QueryExpressionInterface
         return new static($_expression, $_dataType);
     }
     
-    private function getDataTypes(AdapterInterface $_adapter): array
+    private function getDataTypes(QueryAdapterInterface $_adapter): array
     {
         if($_adapter->getDriverName() == 'mysql'){
             return array('DATE', 'DATETIME', 'TIME', 'CHAR', 'SIGNED', 'UNSIGNED', 'BINARY');
@@ -39,7 +39,7 @@ class Cast implements QueryExpressionInterface
         throw new \RuntimeException("Cast does not exist for driver");
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         if(is_string($this->dataType) && !in_array(strtoupper($this->dataType), $this->getDataTypes($_adapter))){
             throw new \RuntimeException('Invalid unit given.');

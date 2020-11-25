@@ -4,12 +4,12 @@
 namespace Stefmachine\QueryBuilder\Builder;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Parts\QueryPartInterface;
 
 class ChainQueryBuilder extends BaseQueryBuilder
 {
-    protected function getTemplate(AdapterInterface $_adapter): string
+    protected function getTemplate(QueryAdapterInterface $_adapter): string
     {
         if($this->getQueryCount() > 0){
             return implode('; ', array_map(function($_number){

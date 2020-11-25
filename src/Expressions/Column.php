@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Expressions;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class Column implements QueryExpressionInterface
@@ -25,7 +25,7 @@ class Column implements QueryExpressionInterface
         return new static($_column);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         return $this->column instanceof QueryExpressionInterface ?
             "({$this->column->buildOnQuery($_qb, $_adapter)})" :

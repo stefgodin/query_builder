@@ -7,7 +7,7 @@ namespace Stefmachine\QueryBuilder\Parts;
 
 use Stefmachine\QueryBuilder\Expressions\Alias;
 use Stefmachine\QueryBuilder\Expressions\QueryExpressionInterface;
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 use Stefmachine\QueryBuilder\Expressions\Table;
 
@@ -33,7 +33,7 @@ class TablePart implements QueryPartInterface
         return new static($_table, $_alias);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         return $this->table->buildOnQuery($_qb, $_adapter);
     }

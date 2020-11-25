@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Expressions;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class LessThan implements QueryExpressionInterface
@@ -18,7 +18,7 @@ class LessThan implements QueryExpressionInterface
         $this->value = $_lessThan;
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $field = $this->field->buildOnQuery($_qb, $_adapter);
         if($this->value instanceof QueryExpressionInterface){

@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Adapter;
 
 
-class MysqlAdapter implements AdapterInterface
+class MysqlQueryAdapter implements QueryAdapterInterface
 {
     public function getDriverName(): string
     {

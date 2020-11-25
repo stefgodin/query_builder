@@ -4,12 +4,12 @@
 namespace Stefmachine\QueryBuilder\Builder;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Parts\FunctionPart;
 
 class StoredProcQueryBuilder extends BaseQueryBuilder
 {
-    protected function getTemplate(AdapterInterface $_adapter): string
+    protected function getTemplate(QueryAdapterInterface $_adapter): string
     {
         return 'CALL {FUNCTION}';
     }

@@ -8,7 +8,7 @@ use Stefmachine\QueryBuilder\Expressions\Column;
 use Stefmachine\QueryBuilder\Expressions\Expr;
 use Stefmachine\QueryBuilder\Expressions\QueryExpressionInterface;
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class WherePart implements QueryPartInterface
@@ -32,7 +32,7 @@ class WherePart implements QueryPartInterface
         return new static($_whereParts);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         if(!empty($this->parts)){
             $conditions = Expr::AndX(...$this->parts)->buildOnQuery($_qb, $_adapter);

@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 use Stefmachine\QueryBuilder\Builder\SelectQueryBuilder;
 use Stefmachine\QueryBuilder\Expressions\Alias;
@@ -39,12 +39,12 @@ abstract class QueryBuilderProxy implements QueryBuilderInterface, QueryPartInte
         return $this->qb->addParam($_value);
     }
     
-    public function getQuery(AdapterInterface $_adapter): QueryInterface
+    public function getQuery(QueryAdapterInterface $_adapter): QueryInterface
     {
         return $this->qb->getQuery($_adapter);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $expr = $this->name !== null ? new Alias($this->qb, $this->name) : $this->qb;
         return $expr->buildOnQuery($_qb, $_adapter);

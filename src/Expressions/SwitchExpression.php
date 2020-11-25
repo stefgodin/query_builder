@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Expressions;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class SwitchExpression implements QueryExpressionInterface, SwitchCaseExpressionInterface
@@ -32,7 +32,7 @@ class SwitchExpression implements QueryExpressionInterface, SwitchCaseExpression
         return $this;
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $conditions = [];
         foreach ($this->conditions as $condition){

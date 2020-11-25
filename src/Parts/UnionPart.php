@@ -5,7 +5,7 @@ namespace Stefmachine\QueryBuilder\Parts;
 
 
 use Stefmachine\QueryBuilder\Expressions\QueryExpressionInterface;
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class UnionPart implements QueryPartInterface
@@ -26,7 +26,7 @@ class UnionPart implements QueryPartInterface
         return new static($_unionAll, ...$_queries);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $union = $this->unionAll ? 'UNION ALL' : 'UNION';
         

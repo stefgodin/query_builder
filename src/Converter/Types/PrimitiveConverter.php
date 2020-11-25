@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Converter\Types;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Converter\TypeConverterInterface;
 
 class PrimitiveConverter implements TypeConverterInterface
@@ -14,7 +14,7 @@ class PrimitiveConverter implements TypeConverterInterface
         return in_array(gettype($_value), ['integer', 'double', 'string', 'NULL']);
     }
     
-    public static function convert($_value, AdapterInterface $_adapter)
+    public static function convert($_value, QueryAdapterInterface $_adapter)
     {
         return $_value;
     }

@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Builder;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Expressions\Join;
 use Stefmachine\QueryBuilder\Expressions\QueryExpressionInterface;
 use Stefmachine\QueryBuilder\Parts\GroupByPart;
@@ -25,7 +25,7 @@ class SelectQueryBuilder extends BaseQueryBuilder
         return true;
     }
     
-    protected function getTemplate(AdapterInterface $_adapter): string
+    protected function getTemplate(QueryAdapterInterface $_adapter): string
     {
         return 'SELECT {DISTINCT} {COLUMNS} FROM {TABLE} {JOIN} {WHERE} {GROUP_BY} {HAVING} {ORDER_BY} {UNION} {UNION_ALL} {LIMIT}';
     }
@@ -46,7 +46,7 @@ class SelectQueryBuilder extends BaseQueryBuilder
     public function distinct()
     {
         $this->setPart('DISTINCT', new class() implements QueryPartInterface {
-            public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+            public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
             {
                 return 'DISTINCT';
             }

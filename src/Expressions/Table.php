@@ -3,7 +3,7 @@
 
 namespace Stefmachine\QueryBuilder\Expressions;
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class Table implements QueryExpressionInterface
@@ -20,7 +20,7 @@ class Table implements QueryExpressionInterface
         return new static($_table);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $table = $this->table instanceof QueryExpressionInterface ?
             $this->table->buildOnQuery($_qb, $_adapter) :

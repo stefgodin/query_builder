@@ -4,7 +4,7 @@
 namespace Stefmachine\QueryBuilder\Expressions;
 
 
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 
 class Distinct implements QueryExpressionInterface
@@ -23,7 +23,7 @@ class Distinct implements QueryExpressionInterface
         return new static(...$_columns);
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $columns = implode(', ', array_map(function(QueryExpressionInterface $_column) use($_qb, $_adapter){
             return $_column->buildOnQuery($_qb, $_adapter);

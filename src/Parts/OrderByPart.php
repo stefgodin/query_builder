@@ -7,7 +7,7 @@ namespace Stefmachine\QueryBuilder\Parts;
 
 use Stefmachine\QueryBuilder\Expressions\Column;
 use Stefmachine\QueryBuilder\Expressions\QueryExpressionInterface;
-use Stefmachine\QueryBuilder\Adapter\AdapterInterface;
+use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Builder\QueryBuilderInterface;
 use Stefmachine\QueryBuilder\Parts\SubPart\OrderSubPart;
 
@@ -36,7 +36,7 @@ class OrderByPart implements QueryPartInterface
         $this->orderBy[] = new OrderSubPart($_field, $_direction === 'ASC');
     }
     
-    public function buildOnQuery(QueryBuilderInterface $_qb, AdapterInterface $_adapter): string
+    public function buildOnQuery(QueryBuilderInterface $_qb, QueryAdapterInterface $_adapter): string
     {
         $orderBy = array();
         if($this->orderBy !== null){
