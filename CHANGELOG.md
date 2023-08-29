@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.2.1] - 2023-08-29
+### Fixed
+- Added missing version number from CHANGELOG.md
+
+## [0.2.0] - 2023-08-29
 ### Added
 - `ConverterRegistry::register` to register new type converter.
 - `ConvertibleTypeInterface` to be implemented by objects to get their type converted when used as a query value.
