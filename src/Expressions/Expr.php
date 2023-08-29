@@ -131,6 +131,11 @@ final class Expr
     
     public static function switchCase(): SwitchCaseExpressionInterface
     {
+        return self::case();
+    }
+    
+    public static function case(): SwitchCaseExpressionInterface
+    {
         return new SwitchExpression();
     }
     

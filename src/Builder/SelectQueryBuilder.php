@@ -120,13 +120,6 @@ class SelectQueryBuilder extends BaseQueryBuilder
                 $field = $direction;
                 $direction = "ASC";
             }
-            
-            if(is_string($field) && in_array(strtoupper($field), ['ASC', 'DESC']) && $direction instanceof QueryExpressionInterface){
-                //fixme: this should not work like that because it only allows one DESC field with query expressions
-                $fieldBuffer = $field;
-                $field = $direction;
-                $direction = $fieldBuffer;
-            }
     
             $this->addOrderBy($field, $direction);
         }
