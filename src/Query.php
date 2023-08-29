@@ -6,8 +6,8 @@ namespace Stefmachine\QueryBuilder;
 
 class Query implements QueryInterface
 {
-    protected $sql;
-    protected $parameters;
+    protected string $sql;
+    protected array $parameters;
     
     public function __construct(string $_sql, array $_parameters)
     {

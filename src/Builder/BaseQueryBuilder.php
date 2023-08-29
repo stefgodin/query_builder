@@ -6,7 +6,7 @@ namespace Stefmachine\QueryBuilder\Builder;
 
 use Stefmachine\QueryBuilder\Adapter\QueryAdapterInterface;
 use Stefmachine\QueryBuilder\Query;
-use Stefmachine\QueryBuilder\Converter\ChainConverter;
+use Stefmachine\QueryBuilder\Converter\ConverterRegistry;
 use Stefmachine\QueryBuilder\Expressions\QueryExpressionInterface;
 use Stefmachine\QueryBuilder\Parts\QueryPartInterface;
 use Stefmachine\QueryBuilder\QueryInterface;
@@ -129,7 +129,7 @@ abstract class BaseQueryBuilder implements QueryBuilderInterface, QueryPartInter
     
         $params = array();
         foreach ($this->params as $param => $value){
-            $params[$param] = ChainConverter::convert($value, $this->adapter);
+            $params[$param] = ConverterRegistry::convert($value, $this->adapter);
         }
     
         $this->adapter = $oldAdapter;
