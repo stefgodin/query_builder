@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.3] - 2024-06-18
+### Added
+- `DELETE` AND `UPDATE` query builders can now have an `ORDER BY` and `LIMIT` clause
+### Changed
+- Fixed previous version release date in changelog
+
+## [0.2.2] - 2024-04-19
+### Added
+- `Expr::case` now can receive an expression as a parameter to allow `CASE <expr> WHEN ...` instead of just `CASE WHEN ...`
+
 ## [0.2.1] - 2023-08-29
 ### Fixed
 - Added missing version number from CHANGELOG.md

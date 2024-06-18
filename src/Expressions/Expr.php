@@ -3,10 +3,9 @@
 
 namespace Stefmachine\QueryBuilder\Expressions;
 
-
 final class Expr
 {
-    private function __construct(){}
+    private function __construct() {}
     
     public static function literal($_value)
     {
@@ -15,26 +14,22 @@ final class Expr
     
     public static function smartEquals($_field, $_value)
     {
-        if(is_null($_value)){
+        if(is_null($_value)) {
             return self::isNull($_field);
-        }
-        else if(is_array($_value)){
+        } else if(is_array($_value)) {
             return self::in($_field, $_value);
-        }
-        else{
+        } else {
             return self::equals($_field, $_value);
         }
     }
     
     public static function smartNotEquals($_field, $_value)
     {
-        if(is_null($_value)){
+        if(is_null($_value)) {
             return self::notNull($_field);
-        }
-        else if(is_array($_value)){
+        } else if(is_array($_value)) {
             return self::notIn($_field, $_value);
-        }
-        else{
+        } else {
             return self::notEqual($_field, $_value);
         }
     }
@@ -129,14 +124,14 @@ final class Expr
         return new AndX(...$_and);
     }
     
-    public static function switchCase(): SwitchCaseExpressionInterface
+    public static function switchCase(?QueryExpressionInterface $_expression = null): SwitchCaseExpressionInterface
     {
-        return self::case();
+        return self::case($_expression);
     }
     
-    public static function case(): SwitchCaseExpressionInterface
+    public static function case(?QueryExpressionInterface $_expression = null): SwitchCaseExpressionInterface
     {
-        return new SwitchExpression();
+        return new SwitchExpression($_expression);
     }
     
     public static function cast($_expression, string $_dataType)
