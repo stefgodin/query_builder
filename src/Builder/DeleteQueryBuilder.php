@@ -39,25 +39,14 @@ class DeleteQueryBuilder extends BaseQueryBuilder
         return $this;
     }
     
-    private function limitPart(): LimitOffsetPart
+    public function limit(?int $_limit)
     {
         $part = $this->getPart('LIMIT');
         if(!$part instanceof LimitOffsetPart) {
             $part = LimitOffsetPart::from();
             $this->setPart('LIMIT', $part);
         }
-        return $part;
-    }
-    
-    public function limit(?int $_limit)
-    {
-        $this->limitPart()->setLimit($_limit);
-        return $this;
-    }
-    
-    public function offset(?int $_offset)
-    {
-        $this->limitPart()->setOffset($_offset);
+        $part->setLimit($_limit);
         return $this;
     }
 }

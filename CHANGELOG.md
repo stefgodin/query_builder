@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.2.3] - 2024-06-18
+## [0.2.3 - 0.2.4] - 2024-06-18
 ### Added
 - `DELETE` AND `UPDATE` query builders can now have an `ORDER BY` and `LIMIT` clause
 ### Changed
